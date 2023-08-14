@@ -55,6 +55,12 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['chat'] = 'chat/index';
 
+$route['user'] = 'user/index';
+$route['user/account'] = 'user/account';
+$route['user/login'] = 'user/login';
+$route['user/registration'] = 'user/registration';
+$route['user/logout'] = 'user/logout';
+
 $route['ws_server'] = 'ws_server/index';
 
 
