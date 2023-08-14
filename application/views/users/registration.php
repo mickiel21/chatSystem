@@ -63,6 +63,6 @@
                 <input type="submit" name="signupSubmit" value="CREATE ACCOUNT">
             </div>
         </form>
-        <p>Already have an account? <a href="<?php echo base_url('users/login'); ?>">Login here</a></p>
+        <p>Already have an account? <a href="<?php echo base_url('user/login'); ?>">Login here</a></p>
     </div>
 </div>

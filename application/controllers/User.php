@@ -15,9 +15,9 @@ class User extends CI_Controller {
      
     public function index(){ 
         if($this->isUserLoggedIn){ 
-            redirect('users/account'); 
+            redirect('user/account'); 
         }else{ 
-            redirect('users/login'); 
+            redirect('user/login'); 
         } 
     } 
  
@@ -34,7 +34,7 @@ class User extends CI_Controller {
             $this->load->view('users/account', $data); 
             $this->load->view('elements/footer'); 
         }else{ 
-            redirect('users/login'); 
+            redirect('user/login'); 
         } 
     } 
  
@@ -69,7 +69,7 @@ class User extends CI_Controller {
                 if($checkLogin){ 
                     $this->session->set_userdata('isUserLoggedIn', TRUE); 
                     $this->session->set_userdata('userId', $checkLogin['id']); 
-                    redirect('users/account/'); 
+                    redirect('user/account/'); 
                 }else{ 
                     $data['error_msg'] = 'Wrong email or password, please try again.'; 
                 } 
@@ -108,7 +108,7 @@ class User extends CI_Controller {
                 $insert = $this->user_model->insert($userData); 
                 if($insert){ 
                     $this->session->set_userdata('success_msg', 'Your account registration has been successful. Please login to your account.'); 
-                    redirect('users/login'); 
+                    redirect('user/login'); 
                 }else{ 
                     $data['error_msg'] = 'Some problems occured, please try again.'; 
                 } 
@@ -130,7 +130,7 @@ class User extends CI_Controller {
         $this->session->unset_userdata('isUserLoggedIn'); 
         $this->session->unset_userdata('userId'); 
         $this->session->sess_destroy(); 
-        redirect('users/login/'); 
+        redirect('user/login/'); 
     } 
      
      
