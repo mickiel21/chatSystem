@@ -15,34 +15,32 @@ class ConnectionModel extends CI_Model{
                  ->delete('connections');
         
         if ($this->db->affected_rows() > 0) {
-            return $delete;
+          return true;
         } else {
-          echo "error";
+          return false;
         }
     }
 
-    public function delete_resource($resoure_id) {
+    public function delete_resource($resource) {
        
-        $delete =  $this->db->where('c_resource_id', $resoure_id)
-                  ->delete('connections');
-         
-         if ($this->db->affected_rows() > 0) {
-             return $delete;
-         } else {
-           echo "error";
-         }
-     }
+        $this->db->where('c_resource_id', $resource)
+        ->delete('connections');
+        
+        if ($this->db->affected_rows() > 0) {
+            return true; // Indicates successful deletion
+        } else {
+            return false; // Indicates deletion error
+        }
+    }
 
     public function insert($connections) {
        
         $this->db->insert('connections', $connections);
     
         if ($this->db->affected_rows() > 0) {
-            // Connections inserted successfully
-            // ...
+            return true;
         } else {
-            // No connections inserted or an error occurred
-            // ...
+           return false;
         }
     }
      
