@@ -5,8 +5,18 @@ use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
 class Chat extends CI_Controller {
+
+    function __construct() { 
+        parent::__construct(); 
+        $this->isUserLoggedIn = $this->session->userdata('isUserLoggedIn'); 
+    } 
     public function index() {
-        $this->load->view('chat_view');
+        if($this->isUserLoggedIn){
+            $this->load->view('chat_view');
+        }else{
+            redirect('user/login'); 
+        }
+        
     }
 }
 
