@@ -62,7 +62,8 @@
         <button id="send-button">Send Message</button>
     </div>
     <script>
-        var conn = new WebSocket('ws://chatsystem.com.ph:8080');
+     
+        var conn = new WebSocket('ws://chatsystem.com.ph:8080?access_token=<?= $this->session->userdata('userId'); ?>');
         conn.onopen = function(e) {
             console.log("Connected to WebSocket");
         };

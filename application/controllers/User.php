@@ -7,8 +7,7 @@ class User extends CI_Controller {
          
         // Load form validation ibrary & user model 
         $this->load->library('form_validation'); 
-        $this->load->model('user_model'); 
-         
+         $this->load->model('usermodel');
         // User login status 
         $this->isUserLoggedIn = $this->session->userdata('isUserLoggedIn'); 
     } 
@@ -27,7 +26,7 @@ class User extends CI_Controller {
             $con = array( 
                 'id' => $this->session->userdata('userId') 
             ); 
-            $data['user'] = $this->user_model->getRows($con); 
+            $data['user'] = $this->usermodel->getRows($con); 
              
             // Pass the user data and load view 
             $this->load->view('elements/header', $data); 
@@ -65,7 +64,7 @@ class User extends CI_Controller {
                         'status' => 1 
                     ) 
                 ); 
-                $checkLogin = $this->user_model->getRows($con); 
+                $checkLogin = $this->usermodel->getRows($con); 
                 if($checkLogin){ 
                     $this->session->set_userdata('isUserLoggedIn', TRUE); 
                     $this->session->set_userdata('userId', $checkLogin['id']); 
@@ -105,7 +104,7 @@ class User extends CI_Controller {
             ); 
  
             if($this->form_validation->run() == true){ 
-                $insert = $this->user_model->insert($userData); 
+                $insert = $this->usermodel->insert($userData); 
                 if($insert){ 
                     $this->session->set_userdata('success_msg', 'Your account registration has been successful. Please login to your account.'); 
                     redirect('user/login'); 
@@ -142,7 +141,7 @@ class User extends CI_Controller {
                 'email' => $str 
             ) 
         ); 
-        $checkEmail = $this->user_model->getRows($con); 
+        $checkEmail = $this->usermodel->getRows($con); 
         if($checkEmail > 0){ 
             $this->form_validation->set_message('email_check', 'The given email already exists.'); 
             return FALSE; 

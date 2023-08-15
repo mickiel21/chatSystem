@@ -1,6 +1,6 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); 
+<?php 
  
-class User_model extends CI_Model{ 
+class UserModel extends CI_Model{ 
     function __construct() { 
         // Set table name 
         $this->table = 'users'; 
@@ -68,4 +68,18 @@ class User_model extends CI_Model{
         } 
         return false; 
     } 
+
+    public function get_user_by_id($user_id) {
+    
+        $query = $this->db->where('id', $user_id)
+                          ->get('users');
+    
+        $user = $query->row(); // Fetches a single row
+       
+        if ($user) {
+            return $user;
+        } else {
+            echo('error');
+        }
+    }
 }

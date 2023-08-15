@@ -25,6 +25,6 @@
                 <input type="submit" name="loginSubmit" value="LOGIN">
             </div>
         </form>
-        <p>Don't have an account? <a href="<?php echo base_url('users/registration'); ?>">Register</a></p>
+        <p>Don't have an account? <a href="<?php echo base_url('user/registration'); ?>">Register</a></p>
     </div>
 </div>

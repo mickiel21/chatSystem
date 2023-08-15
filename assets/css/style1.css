@@ -17,13 +17,7 @@ h2 {
 h1{
     text-align: center;
 }
-.logout {
-    display: block;
-    text-align: center;
-    margin-bottom: 10px;
-    color: #007bff;
-    text-decoration: none;
-}
+
 
 .status-msg {
     padding: 10px;
@@ -44,7 +38,7 @@ h1{
 .regisFrm input[type="text"],
 .regisFrm input[type="email"],
 .regisFrm input[type="password"] {
-    width: 100%;
+    width: 92%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -70,4 +64,12 @@ h1{
 
 p {
     text-align: center;
+}
+
+.logout {
+    text-align: center;
+    display: block;
+    margin-right: 10px;
+    color: #007bff;
+    text-decoration: none;
 }
