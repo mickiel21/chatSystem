@@ -68,6 +68,7 @@ class User extends CI_Controller {
                 if($checkLogin){ 
                     $this->session->set_userdata('isUserLoggedIn', TRUE); 
                     $this->session->set_userdata('userId', $checkLogin['id']); 
+                    $this->session->set_userdata('username', $checkLogin['first_name']); 
                     redirect('user/account/'); 
                 }else{ 
                     $data['error_msg'] = 'Wrong email or password, please try again.'; 
@@ -128,6 +129,7 @@ class User extends CI_Controller {
     public function logout(){ 
         $this->session->unset_userdata('isUserLoggedIn'); 
         $this->session->unset_userdata('userId'); 
+        $this->session->unset_userdata('username'); 
         $this->session->sess_destroy(); 
         redirect('user/login/'); 
     } 
